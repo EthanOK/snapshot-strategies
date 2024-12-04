@@ -99,10 +99,20 @@ export const {
   call,
   getDelegatesBySpace,
   getBlockNumber,
-  getProvider,
   getSnapshots,
   SNAPSHOT_SUBGRAPH_URL
 } = snapshot.utils;
+
+const DEFAULT_BROVIDER_URL =
+  process.env.BROVIDER_URL || 'https://rpc.snapshot.org';
+  
+export const getProvider = (
+  network: any,
+  { broviderUrl = DEFAULT_BROVIDER_URL }: any = {}
+) => {
+  console.log('broviderUrl:', broviderUrl);
+  return snapshot.utils.getProvider(network, { broviderUrl });
+};
 
 export default {
   getScoresDirect,
