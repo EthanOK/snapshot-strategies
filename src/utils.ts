@@ -105,12 +105,11 @@ export const {
 
 const DEFAULT_BROVIDER_URL =
   process.env.BROVIDER_URL || 'https://rpc.snapshot.org';
-  
 export const getProvider = (
   network: any,
   { broviderUrl = DEFAULT_BROVIDER_URL }: any = {}
 ) => {
-  console.log('broviderUrl:', broviderUrl);
+  console.log('snapshot strategies broviderUrl:', broviderUrl);
   return snapshot.utils.getProvider(network, { broviderUrl });
 };
 
